@@ -1,0 +1,27 @@
+
+    ##
+spring:
+  datasource:
+    url: ${DBMS_CONNECTION_DEV:jdbc:mysql://localhost:3306/demo_user}
+    username:  ${DBMS_USERNAME_DEV:root}
+    password:  ${DBMS_PASSWORD_DEV:123456}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
+
+jwt:
+  signerKey: ${SIGNER_KEY_DEV}
+  valid-duration: 900 # in second
+  refreshable-duration: 2592000 # in seconds
+
+outbound:
+  identity:
+    client-id: ${CLIENT_ID_DEV}
+    client-secret: ${CLIENT_SECRET_DEV}
+    redirect-uri: ${REDIRECT_URI_DEV}
